@@ -1,0 +1,19 @@
+# VirtualEnv
+env/
+
+# Jupyter Notebooks 
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Pycharm
+.idea
+
+# VSCode
+.vscode
+
+# Downloaded Data
+data/
+
+# Python
+__pycache__/
+
