@@ -8,6 +8,7 @@ from PIL import Image
 from matplotlib.patches import Rectangle
 from matplotlib.pyplot import cm, subplots, xticks
 from numpy import random, size
+from pandas import DataFrame
 from torch import Tensor, as_tensor, float32, int64, no_grad, tensor, uint8, zeros
 from torchvision import ops
 from torchvision.datasets import VisionDataset
@@ -196,8 +197,8 @@ class VOCXMLDataset(VisionDataset):
         ax.set_title("Boxes per Class")
 
         if kind == "bar":
-            ax.bar(self.boxes_per_class_df.index, self.boxes_per_class_df.nr_boxes, color=[self.color_function(i) for i
-                                                                                        in range(len(self.classes))])
+            ax.bar(self.boxes_per_class_df.index, self.boxes_per_class_df.nr_boxes,
+                   color=[self.color_function(i) for i in range(len(self.classes))])
             xticks(rotation='vertical')
         elif kind == "pie":
             boxes_sum = self.boxes_per_class_df.nr_boxes.sum()
@@ -207,6 +208,28 @@ class VOCXMLDataset(VisionDataset):
                    autopct='%1.1f%%', pctdistance=0.8, labeldistance=1.05)
         else:
             raise ValueError(f"\'kind\' must be either \'bar\' or \'pie\', but got: \'{kind}\'")
+
+    def get_prediction_metrics_df(self, model, indices=None, device="cuda"):
+        if indices is None:
+            indices = range(self.__len__())
+
+        metrics_list = []
+        model.eval()
+
+        for index in indices:
+            image, target = self.__getitem__(index)
+            with no_grad():
+                prediction = model([image.to(device)])[0]
+
+            metrics_list.append({
+                "image_id": index,
+                "filename": self.images[index].name,
+                "classes": [self.classes[label - 1] for label in prediction["labels"]],
+                "scores": prediction["scores"].cpu().numpy(),
+                "max_ious": self._calculate_max_ious(target["boxes"], prediction["boxes"]).cpu().numpy()
+            })
+
+        return DataFrame(metrics_list, columns=["image_id", "filename", "classes", "scores", "max_ious"]).set_index("image_id")
 
     def _extract_images_and_classes_from_annotations(self):
         images = []
@@ -256,7 +279,7 @@ class VOCXMLDataset(VisionDataset):
 
     def _create_image_with_annotation(self, index, ax):
         image, target = self.__getitem__(index)
-        ax.set_title(self.images[index].name)
+        ax.set_title(f"{index}: {self.images[index].name}")
         ax.axis("off")
 
         if isinstance(image, Tensor):
@@ -283,17 +306,15 @@ class VOCXMLDataset(VisionDataset):
         with no_grad():
             prediction = model([image.to(device)])[0]
 
-        predicted_boxes = prediction["boxes"]
-
-        if not size(predicted_boxes.values) == 0:
-            ground_truth_boxes = target["boxes"]
-
-            ious = ops.box_iou(ground_truth_boxes.to("cpu"), predicted_boxes.to("cpu"))
-            max_ious = ious.max(dim=1).values
-
-            prediction["max_ious"] = max_ious
+        if not size(prediction["boxes"].values) == 0:
+            prediction["max_ious"] = self._calculate_max_ious(target["boxes"], prediction["boxes"])
 
             self._create_prediction_box_patches(prediction, ax)
+
+    @staticmethod
+    def _calculate_max_ious(ground_truth_boxes, predicted_boxes):
+        ious = ops.box_iou(ground_truth_boxes.to("cpu"), predicted_boxes.to("cpu"))
+        return ious.max(dim=1).values
 
     def _create_annotation_box_patches(self, target, ax):
         for class_index, (x_min, y_min, x_max, y_max) in enumerate(target["boxes"]):
