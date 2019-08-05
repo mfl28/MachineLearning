@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<annotation>
+    <folder>C:\Users\marku\Desktop\whale_data\images</folder>
+    <filename>21eeba83a.jpg</filename>
+    <size>
+        <width>2688</width>
+        <height>530</height>
+        <depth>1</depth>
+    </size>
+    <object>
+        <name>Fluke</name>
+        <difficult>0</difficult>
+        <occluded>0</occluded>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <bndbox>
+            <xmin>23.11</xmin>
+            <xmax>2664.89</xmax>
+            <ymin>46.21</ymin>
+            <ymax>255.45</ymax>
+        </bndbox>
+    </object>
+</annotation>

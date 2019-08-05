@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<annotation>
+    <folder>C:\Users\marku\Desktop\whale_data\images</folder>
+    <filename>cae48919d.jpg</filename>
+    <size>
+        <width>1774</width>
+        <height>561</height>
+        <depth>1</depth>
+    </size>
+    <object>
+        <name>Fluke</name>
+        <difficult>0</difficult>
+        <occluded>0</occluded>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <bndbox>
+            <xmin>16.82</xmin>
+            <xmax>1761.06</xmax>
+            <ymin>141.04</ymin>
+            <ymax>344.19</ymax>
+        </bndbox>
+    </object>
+</annotation>

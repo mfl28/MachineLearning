@@ -11,8 +11,8 @@ env/
 # VSCode
 .vscode
 
-# Downloaded Data
-data/
+# Downloaded data
+local_data/
 
 # Python
 __pycache__/

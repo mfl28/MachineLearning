@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<annotation>
+    <folder>C:\Users\marku\Desktop\whale_data\images</folder>
+    <filename>cad6650ec.jpg</filename>
+    <size>
+        <width>1050</width>
+        <height>783</height>
+        <depth>3</depth>
+    </size>
+    <object>
+        <name>Fluke</name>
+        <difficult>0</difficult>
+        <occluded>0</occluded>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <bndbox>
+            <xmin>199.89</xmin>
+            <xmax>867.72</xmax>
+            <ymin>271.88</ymin>
+            <ymax>552.95</ymax>
+        </bndbox>
+    </object>
+</annotation>
