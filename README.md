@@ -1,5 +1,5 @@
 # Machine Learning
-This repo contains a compilation of machine learning projects in the form of Jupyter notebooks. For some notebooks additional data, such as bounding box annotation files are needed, these files can be found in the *data* folder.
+This repo contains a compilation of machine learning projects in the form of Jupyter notebooks. For some notebooks additional data, such as bounding box annotation files are needed, these files can be found in the *data* folder. [Pytorch](https://pytorch.org/) is used as the underlying library for projects involving deep learning.
 
 ## `mltools` Library
 This is a small Python library which contains usefull classes and functions for machine learning and data science tasks, such as for example functions helping with feature exploration and Dataset-classes for object detection and classification using Pytorch. 
@@ -13,3 +13,8 @@ A notebook showcasing the use of the `VOCXMLDataset` class from `mltools.detecti
 
 #### Humpback Whale Fluke Detection ([notebook](https://github.com/mfl28/MachineLearning/blob/master/notebooks/Humpback_Whale_Fluke_Detection.ipynb), [nbviewer](https://nbviewer.jupyter.org/github/mfl28/MachineLearning/blob/master/notebooks/Humpback_Whale_Fluke_Detection.ipynb), [Google Colab](https://colab.research.google.com/github/mfl28/MachineLearning/blob/master/notebooks/Humpback_Whale_Fluke_Detection.ipynb))
 A notebook showing how to perform object detection with a custom dataset using a pre-trained and subsequently fine-tuned neural network. Specifically, the aim is to detect and locate humpback whale flukes in images from the [Kaggle Humpback Whale Identification Challenge](https://www.kaggle.com/c/humpback-whale-identification). The ground truth bounding box labels for a selection of 800 images from the training dataset provided by the challenge were created using [Bounding Box Editor](https://github.com/mfl28/BoundingBoxEditor).
+
+### Object Classification
+
+#### Kaggle Competition: MNIST Digit Recognizer ([notebook](https://github.com/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Mnist_Digit_Recognizer.ipynb), [nbviewer](https://nbviewer.jupyter.org/github/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Mnist_Digit_Recognizer.ipynb))
+A notebook showing how to train a convolutional neural network object classifier for the MNIST Dataset from the [Kaggle MNIST Digit Recognizer competition](https://www.kaggle.com/c/digit-recognizer). The aim is to predict hand-drawn digits in images as accurately as possible.
