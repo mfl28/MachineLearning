@@ -2,6 +2,7 @@
 Contains useful functions for feature exploration.
 """
 
+from matplotlib.pyplot import get_cmap
 from pandas import DataFrame, Series
 
 
@@ -33,25 +34,29 @@ def plot_hists_of_overrepresented_values(df, threshold, max_len=None):
     return df.hist(column=cols_to_plot, bins=10, figsize=(15, 15))
 
 
-def lin_corr_with_target(df, target_name):
+def show_corr(df, target_name=None, method="pearson"):
     """
     Shows correlations of a column (feature) with respect to all other features.
     :param df: (pandas.DataFrame) the dataframe
     :param target_name: (string) the name of the target whose correlations with other features are sought
     :return: correlations
     """
-    return df.corr()[target_name].sort_values(ascending=False)
+    if target_name is not None:
+        return DataFrame(df.corr(method=method)[target_name].sort_values(ascending=False)).style.format("{:.2}") \
+            .background_gradient(cmap=get_cmap("coolwarm"))
+
+    return df.corr(method=method).style.format("{:.2}").background_gradient(cmap=get_cmap("coolwarm"), axis=1)
 
 
-def get_cat_and_num_features(df):
+def get_feature_types(df):
     """
-    Gets all features in the dataframe grouped by whether they are categorical or numerical.
+    Gets all features in the dataframe grouped by whether they are numerical or non-numerical (e.g. string).
     :param df: (pandas.DataFrame) the dataframe
     :return: a dict containing the categorical and numerical features
     """
     cn_features = {
-        'categorical': [f_name for f_name in df.columns if df[f_name].dtype == 'object'],
-        'numerical': [f_name for f_name in df.columns if df[f_name].dtype != 'object']
+        'numerical': [f_name for f_name in df.columns if df[f_name].dtype != 'object'],
+        'non_numerical': [f_name for f_name in df.columns if df[f_name].dtype == 'object']
     }
     return cn_features
 
