@@ -32,8 +32,7 @@ def train(model, num_epochs, train_dl, optimizer, scheduler=None, criterion=Cros
         model.train()
 
         running_train_loss = 0.0
-        total_nr_train_samples = 0
-        nr_correct_train_predictions = 0
+        running_train_accuracy = 0.0
 
         for inputs, labels in tqdm(train_dl, desc=f"Epoch {epoch}",
                                    leave=False, disable=hide_progress):
@@ -45,11 +44,12 @@ def train(model, num_epochs, train_dl, optimizer, scheduler=None, criterion=Cros
             outputs = model(inputs)
             # Calculate loss:
             loss = criterion(outputs, labels)
+
+            batch_ratio = inputs.size(0) / len(train_dl.dataset)
             # Update running metrics:
-            running_train_loss += loss.item()
-            total_nr_train_samples += labels.size(0)
+            running_train_loss += loss.item() * batch_ratio
             train_predicted = argmax(outputs.data, 1)
-            nr_correct_train_predictions += (train_predicted == labels).double().sum().item()
+            running_train_accuracy += (train_predicted == labels).double().mean().item() * batch_ratio
             # Backward pass through the model (calculate gradients):
             loss.backward()
 
@@ -64,8 +64,8 @@ def train(model, num_epochs, train_dl, optimizer, scheduler=None, criterion=Cros
         # Record train metrics:
         results.append({
             "epoch": epoch,
-            "train_loss": running_train_loss / total_nr_train_samples,
-            "train_accuracy": nr_correct_train_predictions / total_nr_train_samples
+            "train_loss": running_train_loss,
+            "train_accuracy": running_train_accuracy
         })
 
         epoch_message = "Epoch {0}: Train: loss: {1:.6f}, accuracy: {2:.4f}".format(*results[-1].values())
@@ -74,8 +74,7 @@ def train(model, num_epochs, train_dl, optimizer, scheduler=None, criterion=Cros
             model.eval()
 
             running_test_loss = 0.0
-            total_nr_test_samples = 0
-            nr_correct_test_predictions = 0
+            running_test_accuracy = 0.0
 
             with no_grad():
                 for inputs, labels in test_dl:
@@ -83,13 +82,14 @@ def train(model, num_epochs, train_dl, optimizer, scheduler=None, criterion=Cros
                     outputs = model(inputs)
                     loss = criterion(outputs, labels)
 
-                    running_test_loss += loss.item()
-                    predicted = argmax(outputs, 1)
-                    total_nr_test_samples += labels.size(0)
-                    nr_correct_test_predictions += (predicted == labels).double().sum().item()
+                    batch_ratio = inputs.size(0) / len(test_dl.dataset)
 
-            results[-1]["test_loss"] = running_test_loss / total_nr_test_samples
-            results[-1]["test_accuracy"] = nr_correct_test_predictions / total_nr_test_samples
+                    running_test_loss += loss.item() * batch_ratio
+                    predicted = argmax(outputs, 1)
+                    running_test_accuracy += (predicted == labels).double().mean().item() * batch_ratio
+
+            results[-1]["test_loss"] = running_test_loss
+            results[-1]["test_accuracy"] = running_test_accuracy
 
             epoch_message += ", Test: loss: {0:.6f}, accuracy: {1:.4f}".format(results[-1]["test_loss"],
                                                                                results[-1]["test_accuracy"])

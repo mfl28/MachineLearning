@@ -1,11 +1,13 @@
 """
 Image classification data-sets all subclassing Pytorch's Dataset.
 """
+import random
 
 from PIL import Image
 from numpy import asarray, dtype, uint8
 from pandas import SparseDtype, read_csv
 from torch.utils.data import Dataset
+from torchvision.datasets import ImageFolder
 
 
 class CSVImageDataset(Dataset):
@@ -112,3 +114,32 @@ class DataframeImageDataset(Dataset):
             return image, label
         else:
             return image
+
+
+class ImagePairDataset(Dataset):
+    def __init__(self, image_folder_dir, transform=None):
+        super(ImagePairDataset, self).__init__()
+        self.images_dataset = ImageFolder(root=image_folder_dir)
+        self.transform = transform
+
+    def __getitem__(self, index):
+        first_image_data = self.images_dataset.imgs[index]
+
+        different_class = random.randint(0, 1)
+        second_image_data = (random.choice([image for image in self.images_dataset.imgs
+                                            if image[1] == first_image_data[1]])
+                             if not different_class else
+                             random.choice([image for image in self.images_dataset.imgs
+                                            if image[1] != first_image_data[1]]))
+
+        first_image = Image.open(first_image_data[0])
+        second_image = Image.open(second_image_data[0])
+
+        if self.transform is not None:
+            first_image = self.transform(first_image)
+            second_image = self.transform(second_image)
+
+        return first_image, second_image, different_class
+
+    def __len__(self):
+        return len(self.images_dataset)

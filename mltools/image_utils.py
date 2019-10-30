@@ -4,6 +4,8 @@ Contains utility functions which can come in handy when working with images.
 from concurrent.futures import ThreadPoolExecutor
 
 from cv2 import COLOR_BGR2RGB, INTER_CUBIC, cvtColor, imread, imwrite, resize
+from sklearn.model_selection import train_test_split
+import pandas as pd
 
 
 def resize_image(image_path, size, interpolation=INTER_CUBIC, to_rgb=False):
@@ -63,3 +65,22 @@ def resize_images_from_folder(source_dir, size, destination_dir=None, interpolat
     with ThreadPoolExecutor(num_workers) as tpe:
         tpe.map(lambda path: resize_and_save_image(path, size, save_folder, interpolation), filename_iterator)
     print(f"Resized images were saved to {save_folder}.")
+
+
+def stratified_copy_from_image_folder(image_folder_path, destination_folder_path, test_size):
+    data = [{"file": file, "class_name": file.parent.name} for class_path in image_folder_path.iterdir()
+            for file in class_path.iterdir() if file.is_file()]
+
+    df = pd.DataFrame(data)
+    _, df_test = train_test_split(df, test_size=test_size, shuffle=True, stratify=df["class_name"])
+
+    for file in df_test.file:
+        destination_directory = destination_folder_path.absolute() / f"{file.parent.name}"
+
+        if not destination_directory.exists():
+            destination_directory.mkdir(parents=True)
+
+        file.rename(destination_directory / f"{file.name}")
+
+
+
