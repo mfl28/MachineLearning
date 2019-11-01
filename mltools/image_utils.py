@@ -67,20 +67,30 @@ def resize_images_from_folder(source_dir, size, destination_dir=None, interpolat
     print(f"Resized images were saved to {save_folder}.")
 
 
-def stratified_copy_from_image_folder(image_folder_path, destination_folder_path, test_size):
+def stratified_train_test_split_from_image_folder(image_folder_path, test_size):
     data = [{"file": file, "class_name": file.parent.name} for class_path in image_folder_path.iterdir()
             for file in class_path.iterdir() if file.is_file()]
 
     df = pd.DataFrame(data)
-    _, df_test = train_test_split(df, test_size=test_size, shuffle=True, stratify=df["class_name"])
+    df_train, df_test = train_test_split(df, test_size=test_size, shuffle=True, stratify=df["class_name"])
 
-    for file in df_test.file:
-        destination_directory = destination_folder_path.absolute() / f"{file.parent.name}"
+    train_path = image_folder_path / "train"
+    test_path = image_folder_path / "test"
 
-        if not destination_directory.exists():
-            destination_directory.mkdir(parents=True)
+    _move_images_by_category(df_train.file, train_path)
+    _move_images_by_category(df_test.file, test_path)
 
-        file.rename(destination_directory / f"{file.name}")
+    for class_name in df.class_name.unique():
+        (image_folder_path / class_name).rmdir()
 
+
+def _move_images_by_category(files, destination_dir):
+    for file in files:
+        destination = destination_dir.absolute() / f"{file.parent.name}"
+
+        if not destination.exists():
+            destination.mkdir(parents=True)
+
+        file.rename(destination / f"{file.name}")
 
 
