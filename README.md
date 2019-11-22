@@ -8,13 +8,6 @@ This is a small Python library which contains useful classes and functions for m
 
 ### Object Detection
 
-#### VOCXMLDataset Demo ([notebook](https://github.com/mfl28/MachineLearning/blob/master/notebooks/VOCXMLDataset_Demo.ipynb), [nbviewer](https://nbviewer.jupyter.org/github/mfl28/MachineLearning/blob/master/notebooks/VOCXMLDataset_Demo.ipynb))
-<p align=left>
-<img src="demo-media/voc_demo.png" height= "250" />
-</p>
-
-A notebook showcasing the use of the `VOCXMLDataset` class from `mltools.detection.datasets` using images and annotations from the [VOC2012 dataset](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/) for demonstrations. 
-
 #### Humpback Whale Fluke Detection ([notebook](https://github.com/mfl28/MachineLearning/blob/master/notebooks/Humpback_Whale_Fluke_Detection.ipynb), [nbviewer](https://nbviewer.jupyter.org/github/mfl28/MachineLearning/blob/master/notebooks/Humpback_Whale_Fluke_Detection.ipynb), [Google Colab](https://colab.research.google.com/github/mfl28/MachineLearning/blob/master/notebooks/Humpback_Whale_Fluke_Detection.ipynb))
 <p align=left>
 <img src="demo-media/whale_demo.png" height= "200" />
@@ -22,7 +15,17 @@ A notebook showcasing the use of the `VOCXMLDataset` class from `mltools.detecti
 
 A notebook showing how to perform object detection with a custom dataset using a pre-trained and subsequently fine-tuned neural network. Specifically, the aim is to detect and locate humpback whale flukes in images from the [Kaggle Humpback Whale Identification Challenge](https://www.kaggle.com/c/humpback-whale-identification). The ground truth bounding box labels for a selection of 800 images from the training dataset provided by the challenge were created using [Bounding Box Editor](https://github.com/mfl28/BoundingBoxEditor).
 
+#### VOCXMLDataset Demo ([notebook](https://github.com/mfl28/MachineLearning/blob/master/notebooks/VOCXMLDataset_Demo.ipynb), [nbviewer](https://nbviewer.jupyter.org/github/mfl28/MachineLearning/blob/master/notebooks/VOCXMLDataset_Demo.ipynb))
+<p align=left>
+<img src="demo-media/voc_demo.png" height= "250" />
+</p>
+
+A notebook showcasing the use of the `VOCXMLDataset` class from `mltools.detection.datasets` using images and annotations from the [VOC2012 dataset](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/) for demonstrations. 
+
 ### Classification
+
+#### Kaggle Competition: Humpback Whale Identification ([notebook](https://github.com/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Whale_Identification.ipynb), [nbviewer](https://nbviewer.jupyter.org/github/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Whale_Identification.ipynb), [Google Colab](https://colab.research.google.com/github/mfl28/MachineLearning/blob/master/notebooks/Humpback_Whale_Identification.ipynb))
+In this notebook we'll train a classifier to identify humpback whales in images according to the [Kaggle Humpback Whale Identification Challenge](https://www.kaggle.com/c/humpback-whale-identification). We'll use the [fast.ai](https://github.com/fastai/fastai) deep learning library to perform this task. 
 
 #### Kaggle Competition: MNIST Digit Recognizer ([notebook](https://github.com/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Mnist_Digit_Recognizer.ipynb), [nbviewer](https://nbviewer.jupyter.org/github/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Mnist_Digit_Recognizer.ipynb))
 <p align=left>
