@@ -6,6 +6,17 @@ This is a small Python library which contains useful classes and functions for m
 
 ## Notebooks
 
+### Semantic Segmentation
+
+#### Kaggle Competition: Dstl Satellite Imagery Feature Detection ([notebook](https://github.com/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Dstl_Satellite_Imagery_Feature_Detection.ipynb), [nbviewer](https://nbviewer.jupyter.org/github/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Dstl_Satellite_Imagery_Feature_Detection.ipynb), [Google Colab](https://colab.research.google.com/github/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Dstl_Satellite_Imagery_Feature_Detection.ipynb))
+<p align=left>
+<img src="demo-media/satellite_demo1.png" height= "150" />
+<img src="demo-media/satellite_demo2.png" height= "150" />
+</p>
+
+A notebook showing how to perform semantic segmentation using a fully convolutional neural network. Our aim is to locate buildings in satellite images from the [Kaggle Dstl Satellite Imagery Feature Detection](https://www.kaggle.com/c/dstl-satellite-imagery-feature-detection).
+
+
 ### Object Detection
 
 #### Humpback Whale Fluke Detection ([notebook](https://github.com/mfl28/MachineLearning/blob/master/notebooks/Humpback_Whale_Fluke_Detection.ipynb), [nbviewer](https://nbviewer.jupyter.org/github/mfl28/MachineLearning/blob/master/notebooks/Humpback_Whale_Fluke_Detection.ipynb), [Google Colab](https://colab.research.google.com/github/mfl28/MachineLearning/blob/master/notebooks/Humpback_Whale_Fluke_Detection.ipynb))
