@@ -1,7 +1,7 @@
 # Machine Learning
 This repo contains a compilation of machine learning projects in the form of Jupyter notebooks. For some notebooks additional data, such as bounding box annotation files are needed, these files can be found in the *data* folder. [Pytorch](https://pytorch.org/) is used as the underlying library for projects involving deep learning.
 
-## `mltools` Library
+## `mltools` Library [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/mfl28/MachineLearning.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/mfl28/MachineLearning/context:python)
 This is a small Python library which contains useful classes and functions for machine learning and data science tasks, such as for example functions helping with feature exploration and Dataset-classes for object detection and classification using Pytorch. 
 
 ## Notebooks
