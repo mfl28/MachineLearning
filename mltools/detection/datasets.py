@@ -201,8 +201,6 @@ class VOCXMLDataset(VisionDataset):
                    color=[self.color_function(i) for i in range(len(self.classes))])
             xticks(rotation='vertical')
         elif kind == "pie":
-            boxes_sum = self.boxes_per_class_df.nr_boxes.sum()
-
             ax.pie(self.boxes_per_class_df.nr_boxes, labels=self.boxes_per_class_df.index,
                    colors=[self.color_function(i) for i in range(len(self.classes))],
                    autopct='%1.1f%%', pctdistance=0.8, labeldistance=1.05)
