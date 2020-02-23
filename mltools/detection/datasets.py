@@ -64,7 +64,7 @@ class VOCXMLDataset(VisionDataset):
         annotation_image_width, annotation_image_height, classes, boxes = self._parse_annotation(index)
 
         boxes = as_tensor(boxes, dtype=float32)
-        labels = as_tensor([self.class_name_to_label[class_name] for class_name in classes], dtype=uint8)
+        labels = as_tensor([self.class_name_to_label[class_name] for class_name in classes], dtype=int64)
         image_id = tensor([index])
         area = (boxes[:, 3] - boxes[:, 1]) * (boxes[:, 2] - boxes[:, 0])
         # Needed for the torch FasterRCNN, but not used (always set to zero)
