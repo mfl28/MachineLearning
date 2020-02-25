@@ -9,7 +9,7 @@ from matplotlib.patches import Rectangle
 from matplotlib.pyplot import cm, subplots, xticks
 from numpy import random, size
 from pandas import DataFrame
-from torch import Tensor, as_tensor, float32, int64, no_grad, tensor, uint8, zeros
+from torch import Tensor, as_tensor, float32, int64, no_grad, tensor, zeros
 from torchvision import ops
 from torchvision.datasets import VisionDataset
 
