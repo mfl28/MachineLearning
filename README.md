@@ -8,7 +8,7 @@ This is a small Python library which contains useful classes and functions for m
 
 ### Semantic Segmentation
 
-#### Kaggle Competition: Dstl Satellite Imagery Feature Detection ([notebook](https://github.com/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Dstl_Satellite_Imagery_Feature_Detection.ipynb), [nbviewer](https://nbviewer.jupyter.org/github/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Dstl_Satellite_Imagery_Feature_Detection.ipynb), [Google Colab](https://colab.research.google.com/github/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Dstl_Satellite_Imagery_Feature_Detection.ipynb))
+#### Kaggle Competition: Dstl Satellite Imagery Feature Detection ([notebook](https://github.com/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Dstl_Satellite_Imagery_Feature_Detection.ipynb), [nbviewer](https://nbviewer.jupyter.org/github/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Dstl_Satellite_Imagery_Feature_Detection.ipynb), [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Dstl_Satellite_Imagery_Feature_Detection.ipynb))
 <p align=left>
 <img src="demo-media/satellite_demo1.png" height= "150" />
 <img src="demo-media/satellite_demo2.png" height= "150" />
@@ -19,7 +19,7 @@ A notebook showing how to perform semantic segmentation using a fully convolutio
 
 ### Object Detection
 
-#### Humpback Whale Fluke Detection ([notebook](https://github.com/mfl28/MachineLearning/blob/master/notebooks/Humpback_Whale_Fluke_Detection.ipynb), [nbviewer](https://nbviewer.jupyter.org/github/mfl28/MachineLearning/blob/master/notebooks/Humpback_Whale_Fluke_Detection.ipynb), [Google Colab](https://colab.research.google.com/github/mfl28/MachineLearning/blob/master/notebooks/Humpback_Whale_Fluke_Detection.ipynb))
+#### Humpback Whale Fluke Detection ([notebook](https://github.com/mfl28/MachineLearning/blob/master/notebooks/Humpback_Whale_Fluke_Detection.ipynb), [nbviewer](https://nbviewer.jupyter.org/github/mfl28/MachineLearning/blob/master/notebooks/Humpback_Whale_Fluke_Detection.ipynb), [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mfl28/MachineLearning/blob/master/notebooks/Humpback_Whale_Fluke_Detection.ipynb))
 <p align=left>
 <img src="demo-media/whale_demo.png" height= "200" />
 </p>
@@ -35,7 +35,7 @@ A notebook showcasing the use of the `VOCXMLDataset` class from `mltools.detecti
 
 ### Classification
 
-#### Kaggle Competition: Humpback Whale Identification ([notebook](https://github.com/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Whale_Identification.ipynb), [nbviewer](https://nbviewer.jupyter.org/github/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Whale_Identification.ipynb), [Google Colab](https://colab.research.google.com/github/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Whale_Identification.ipynb))
+#### Kaggle Competition: Humpback Whale Identification ([notebook](https://github.com/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Whale_Identification.ipynb), [nbviewer](https://nbviewer.jupyter.org/github/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Whale_Identification.ipynb), [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Whale_Identification.ipynb))
 In this notebook we'll train a classifier to identify humpback whales in images according to the [Kaggle Humpback Whale Identification Challenge](https://www.kaggle.com/c/humpback-whale-identification). We'll use the [fast.ai](https://github.com/fastai/fastai) deep learning library to perform this task. 
 
 #### Kaggle Competition: MNIST Digit Recognizer ([notebook](https://github.com/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Mnist_Digit_Recognizer.ipynb), [nbviewer](https://nbviewer.jupyter.org/github/mfl28/MachineLearning/blob/master/notebooks/Kaggle_Mnist_Digit_Recognizer.ipynb))
