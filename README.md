@@ -14,7 +14,7 @@ This is a small Python library which contains useful classes and functions for m
 <img src="demo-media/satellite_demo2.png" height= "150" />
 </p>
 
-A notebook showing how to perform semantic segmentation using a fully convolutional neural network. Our aim is to locate buildings in satellite images from the [Kaggle Dstl Satellite Imagery Feature Detection](https://www.kaggle.com/c/dstl-satellite-imagery-feature-detection).
+A notebook showing how to perform semantic segmentation using a fully convolutional neural network. Our aim is to locate buildings in satellite images from the [Kaggle Dstl Satellite Imagery Feature Detection Challenge](https://www.kaggle.com/c/dstl-satellite-imagery-feature-detection).
 
 
 ### Object Detection
