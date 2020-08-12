@@ -1,6 +1,9 @@
 """
 Models specific to semantic segmentation.
 """
+import torch
+import torch.nn as nn
+import torchvision
 
 class UNetDoubleConvBlock(nn.Module):
     def __init__(self, in_channels, out_channels, dropout, activation, padding=1):
