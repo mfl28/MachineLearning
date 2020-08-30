@@ -5,6 +5,8 @@ This repo contains a compilation of machine learning projects in the form of Jup
 This is a Python library which contains useful classes and functions for machine learning and data science tasks, such as feature exploration, object detection and classification as well as semantic segmentation using Pytorch. 
 
 ## How to open notebooks using Docker
+**Requirements:** [Docker](https://www.docker.com/get-started), [docker-compose](https://docs.docker.com/compose/install/)
+
 The repo provides a [Dockerfile](Dockerfile) and [docker-compose.yml](docker-compose.yml) to create a Docker container that starts a Jupyter Notebook server (using [docker-stacks](https://github.com/jupyter/docker-stacks))
 and allows you to open the notebooks without having to install the requirements on your system. The steps to do this are:
 
