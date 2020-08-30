@@ -4,6 +4,19 @@ This repo contains a compilation of machine learning projects in the form of Jup
 ## `mltools` Library [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/mfl28/MachineLearning.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/mfl28/MachineLearning/context:python)
 This is a Python library which contains useful classes and functions for machine learning and data science tasks, such as feature exploration, object detection and classification as well as semantic segmentation using Pytorch. 
 
+## How to open notebooks using Docker
+The repo provides a [Dockerfile](Dockerfile) and [docker-compose.yml](docker-compose.yml) to create a Docker container that starts a Jupyter Notebook server (using [docker-stacks](https://github.com/jupyter/docker-stacks))
+and allows you to open the notebooks without having to install the requirements on your system. The steps to do this are:
+
+1. Clone the repo:
+    ```bash
+    git clone https://github.com/mfl28/MachineLearning.git
+    cd MachineLearning
+    ```
+2. Build the image and start the container using `docker-compose up`.
+3. Copy the URL shown in the terminal to your browser's address bar and replace the internal port (`8888`) with the mapped host port `10000`.
+4. When you are done, you can shut down the server from the terminal using `CTRL-C` and remove the created Docker container using `docker-compose down.`
+
 ## Notebooks
 
 ### Semantic Segmentation
