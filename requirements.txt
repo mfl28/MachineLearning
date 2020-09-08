@@ -1,4 +1,5 @@
-﻿jupyter==1.0.0
+﻿fastai==2.0.6
+jupyter==1.0.0
 jupyter-client==6.1.7
 jupyter-console==6.2.0
 jupyter-core==4.6.3
