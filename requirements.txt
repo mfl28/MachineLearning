@@ -1,4 +1,4 @@
-﻿fastai==2.0.6
+fastai==2.0.6
 jupyter==1.0.0
 jupyter-client==6.1.7
 jupyter-console==6.2.0
@@ -12,7 +12,7 @@ opencv-python==4.4.0.42
 pandas==1.1.1
 pathlib==1.0.1
 pickleshare==0.7.5
-Pillow==9.3.0
+Pillow==10.0.1
 scikit-learn==0.23.2
 scipy==1.5.2
 seaborn==0.10.1
